@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AuthScreen } from './components/AuthScreen'
 import { Sidebar } from './components/Sidebar'
+import { LibraryDashboard } from './components/LibraryDashboard'
 import { api, session } from './lib/api'
 import type { User } from './types'
 
@@ -8,6 +9,7 @@ function App() {
   const [user, setUser] = useState<User | null>(null)
   const [checkingSession, setCheckingSession] = useState(true)
   const [activeView, setActiveView] = useState<'overview' | 'library'>('overview')
+  const [formOpen, setFormOpen] = useState(false)
 
   useEffect(() => {
     if (!session.getToken()) {
@@ -35,7 +37,7 @@ function App() {
         user={user}
         activeView={activeView}
         onViewChange={setActiveView}
-        onAdd={() => setActiveView('library')}
+        onAdd={() => { setActiveView('library'); setFormOpen(true) }}
         onLogout={() => {
           session.clear()
           setUser(null)
@@ -46,11 +48,7 @@ function App() {
           <div><p className="eyebrow">PERSONAL COLLECTION</p><h1>{activeView === 'overview' ? 'Reading overview' : 'Your library'}</h1></div>
           <div className="header-meta"><span>LOCAL</span><strong>{new Date().toLocaleDateString('en', { month: 'short', day: 'numeric' })}</strong></div>
         </header>
-        <section className="placeholder-panel">
-          <p className="eyebrow">KOUDE LIBRARY</p>
-          <h2>The shelves are ready.</h2>
-          <p>Book management, filters, reading progress and statistics are connected in the next layer.</p>
-        </section>
+        <LibraryDashboard view={activeView} formOpen={formOpen} onFormOpenChange={setFormOpen} />
       </main>
     </div>
   )
