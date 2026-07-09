@@ -80,7 +80,7 @@ button { color: inherit; }
 .placeholder-panel h2 { margin: 0 0 10px; font: 500 34px Georgia, 'Times New Roman', serif; }
 .placeholder-panel > p:last-child { margin: 0 auto; max-width: 450px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .app-loader { min-height: 100vh; display: grid; place-content: center; gap: 12px; justify-items: center; color: var(--muted); font: 400 10px Consolas, 'Courier New', monospace; letter-spacing: .12em; }
-.loader-mark { width: 42px; height: 42px; border: 1px solid #3a3933; display: grid; place-items: center; color: var(--text); font-family: 'Playfair Display', serif; font-size: 20px; animation: pulse 1.2s infinite alternate; }
+.loader-mark { width: 42px; height: 42px; border: 1px solid #3a3933; display: grid; place-items: center; color: var(--text); font-family: Georgia, 'Times New Roman', serif; font-size: 20px; animation: pulse 1.2s infinite alternate; }
 @keyframes pulse { to { opacity: .45; } }
 
 @media (max-width: 900px) {
