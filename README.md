@@ -55,6 +55,8 @@ Start the client and API together:
 npm run dev
 ```
 
+On Windows you can also double-click `START-KOUDE-LIBRARY.bat`. It installs dependencies on the first run and then starts both parts of the app.
+
 Open:
 
 ```text
@@ -96,7 +98,7 @@ server/data/koude-library.db
 
 The directory is ignored by Git, so your personal library is not committed.
 
-Optional environment variables can be copied from `.env.example` into `.env`.
+Optional environment variables can be copied from `server/.env.example` into `server/.env`.
 
 ## Project structure
 
@@ -119,7 +121,7 @@ koude-library/
 │     ├─ tests/
 │     ├─ app.ts
 │     └─ index.ts
-├─ .env.example
+├─ START-KOUDE-LIBRARY.bat
 └─ package.json
 ```
 
