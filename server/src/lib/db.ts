@@ -1,4 +1,4 @@
-import Database from 'better-sqlite3'
+import { DatabaseSync } from 'node:sqlite'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -11,12 +11,12 @@ fs.mkdirSync(dataDir, { recursive: true })
 
 const databasePath = process.env.DATABASE_PATH ?? path.join(dataDir, 'koude-library.db')
 
-export const db = new Database(databasePath)
-
-db.pragma('journal_mode = WAL')
-db.pragma('foreign_keys = ON')
+export const db = new DatabaseSync(databasePath)
 
 db.exec(`
+  PRAGMA journal_mode = WAL;
+  PRAGMA foreign_keys = ON;
+
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,

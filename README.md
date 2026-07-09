@@ -2,7 +2,7 @@
 
 Koude Library is a local-first personal reading dashboard built in the same restrained dark visual direction as Koude Cloud. It keeps books, reading progress, ratings and notes in a SQLite database on the computer where the app is running.
 
-No Docker, no hosted database and no required cloud services.
+No Docker, no hosted database, no native SQLite addon and no required cloud services.
 
 ## Stack
 
@@ -11,7 +11,7 @@ No Docker, no hosted database and no required cloud services.
 - Vite
 - Node.js
 - Express
-- SQLite
+- SQLite via Node.js built-in `node:sqlite`
 - Zod
 - JWT
 - bcryptjs
@@ -40,7 +40,7 @@ No Docker, no hosted database and no required cloud services.
 
 Requirements:
 
-- Node.js 22+
+- Node.js 22.5+ (Node.js 24 recommended)
 - npm
 
 Install dependencies:
@@ -127,7 +127,7 @@ koude-library/
 
 ## Commit history
 
-The repository already contains staged development history instead of one giant commit:
+The repository contains staged development history instead of one giant commit:
 
 ```text
 chore: initialize local Koude Library workspace

@@ -4,7 +4,7 @@ cd /d "%~dp0"
 where node >nul 2>nul
 if errorlevel 1 (
   echo Node.js is not installed or not available in PATH.
-  echo Install Node.js 22 or newer and run this file again.
+  echo Install Node.js 22.5 or newer and run this file again.
   pause
   exit /b 1
 )
